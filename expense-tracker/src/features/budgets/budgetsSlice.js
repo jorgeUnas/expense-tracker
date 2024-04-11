@@ -32,3 +32,5 @@ const budgetsSlice = createSlice({
 });
 
 export const selectBudgets = (state) => state.budgets;
+export const {editBudget} = budgetsSlice.actions; 
+export default budgetsSlice.reducer;
