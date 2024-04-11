@@ -16,7 +16,20 @@ const initialState = CATEGORIES.map((category) => ({
   amount: 0,
 }));
 
-const budgetsSlice = createSlice();
+const budgetsSlice = createSlice({
+  name: 'budgets',
+  initialState: initialState, 
+  reducers: {
+    editBudget: (state, action) => {
+      const { category, amount } = action.payload;
+      const budgetToUpdate = state.find(budget => budget.category == category
+      )
+      if(budgetToUpdate){
+        budgetToUpdate.amount = amount; 
+      }
+    }
+  }
+});
 
 export const editBudget = (budget) => {
   return {
