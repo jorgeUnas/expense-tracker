@@ -16,7 +16,12 @@ const initialState = Object.fromEntries(
 const transactionsSlice = createSlice({
   name: 'transactions',
   initialState: initialState,
-  reducers: {}
+  reducers: {
+      addTransaction: (state, action) => {
+      const {category} = action.payload;
+      state[category].push(action.payload); 
+    },
+  }
 })
 
 export const addTransaction = (transaction) => {
