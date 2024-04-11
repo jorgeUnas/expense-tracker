@@ -17,10 +17,14 @@ const transactionsSlice = createSlice({
   name: 'transactions',
   initialState: initialState,
   reducers: {
-      addTransaction: (state, action) => {
+    addTransaction: (state, action) => {
       const {category} = action.payload;
       state[category].push(action.payload); 
     },
+    deleteTransaction: (state, action) => {
+      const {category, id} = action.payload;
+      state[category] = state[category].filter((trans) => trans.id !== id);
+    }
   }
 })
 
