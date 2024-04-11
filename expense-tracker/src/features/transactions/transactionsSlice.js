@@ -13,6 +13,12 @@ const initialState = Object.fromEntries(
   CATEGORIES.map((category) => [category, []])
 );
 
+const transactionsSlice = createSlice({
+  name: 'transactions',
+  initialState: initialState,
+  reducers: {}
+})
+
 export const addTransaction = (transaction) => {
   return {
     type: "transactions/addTransaction",
