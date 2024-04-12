@@ -1,3 +1,5 @@
+import { createSlice } from '@reduxjs/toolkit';
+
 export const CATEGORIES = [
   "housing",
   "food",
@@ -34,4 +36,5 @@ export const selectFlattenedTransactions = (state) =>
   Object.values(state.transactions).reduce((a, b) => [...a, ...b], []);
 
 
-export default transactionsReducer;
+export const { addTransaction, deleteTransaction } = transactionsSlice.actions; 
+export default transactionsSlice.reducer; 
